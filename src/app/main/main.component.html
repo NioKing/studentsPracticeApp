@@ -1,0 +1,16 @@
+<app-filter [students]="students" (matureStudents)="filterMatureStudents($event)"></app-filter>
+<div class="container" style="margin: 30px auto; width: 400px">
+    <div class="person" style="margin-bottom: 40px;" *ngFor="let stundent of students">
+    <mat-card>
+            <mat-card-title style="text-align: center;">
+                <span>ID: {{stundent.id}}</span>
+            </mat-card-title>
+            <mat-card-content style="display: flex; flex-direction: column; gap: 10px; font-size: 20px;">
+                <span>Name: {{stundent.name}}</span>
+                <span>Age: {{stundent.age}}</span>
+                <span>Is student: {{stundent.isStudent}}</span>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    
+</div>

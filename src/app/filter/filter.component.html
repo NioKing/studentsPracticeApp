@@ -1,0 +1,21 @@
+<div class="card" style="display: block; text-align: center; width: 700px; margin: 0 auto;">
+    <mat-card>
+        <mat-card-title>
+            <span>Sort Methods</span>
+        </mat-card-title>
+        <mat-card-content>
+            <mat-form-field appearance="fill">
+                <mat-label>Select a sort method</mat-label>
+                <mat-select>
+                    <mat-option (click)="sortStudentsByAge()">
+                        Age
+                    </mat-option>
+                    <mat-option (click)="sortStudentsByIsStudent()">
+                        Is Student
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </mat-card-content>
+        <button mat-raised-button color="primary" (click)="filterByAge()">Filter By Age</button>
+    </mat-card>
+</div>
