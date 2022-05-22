@@ -33,8 +33,7 @@ export class FilterComponent implements OnInit {
   // Filter Student by Age
   filterByAge() {
     const mature = this.students.filter(val => +val.age >= 18)
-    this.students = mature
-    this.matureStudents.emit(this.students)
+    this.matureStudents.emit(mature)
 }
 
 }
