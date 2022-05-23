@@ -1,0 +1,12 @@
+<mat-card style="width: 400px; margin: 0 auto; margin-top: 20px;">
+    <div class="search">
+        <form [formGroup]="searchForm">
+            <mat-form-field>
+                <mat-label>Search for students</mat-label>
+                <input matInput="search" #searchTerm formControlName="input">
+            </mat-form-field>
+            <button mat-raised-button color="primary"
+            (click)="getStudentsBySearch(searchTerm.value)">Search</button>
+        </form>
+    </div>
+</mat-card>

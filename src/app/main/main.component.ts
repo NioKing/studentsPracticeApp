@@ -84,5 +84,10 @@ export class MainComponent implements OnInit {
     
   }
 
+  searchForStudent(student: Students[]) {
+    this.students = student
+    console.log(this.students);
+    
+  }
  
 }

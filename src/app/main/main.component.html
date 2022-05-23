@@ -1,4 +1,5 @@
 <app-filter [students]="students" (matureStudents)="filterMatureStudents($event)"></app-filter>
+<app-search [students]="students" (searchedStudents)="searchForStudent($event)"></app-search>
 <div class="container" style="margin: 30px auto; width: 400px">
     <div class="person" style="margin-bottom: 40px;" *ngFor="let stundent of students">
     <mat-card>

@@ -7,12 +7,14 @@ import { MainComponent } from './main/main.component';
 import { SharedModule } from './shared/shared.module';
 import { FilterComponent } from './filter/filter.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    FilterComponent
+    FilterComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
