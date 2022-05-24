@@ -8,20 +8,22 @@ import { SharedModule } from './shared/shared.module';
 import { FilterComponent } from './filter/filter.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchComponent } from './search/search.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     FilterComponent,
-    SearchComponent
+    SearchComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     SharedModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
