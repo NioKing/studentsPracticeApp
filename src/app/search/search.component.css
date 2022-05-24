@@ -1,0 +1,17 @@
+.search {
+    display: flex;
+    justify-content: center;
+    
+}
+
+mat-form-field {
+    width: 400px;
+}
+
+mat-card {
+    border-radius: 10px;
+}
+
+form {
+    text-align: center;
+}
