@@ -70,7 +70,7 @@ export class MainComponent implements OnInit {
       isStudent: true
     },
 ]
-  
+  searchValue: string = ''
 
   constructor() { }
 
@@ -84,8 +84,8 @@ export class MainComponent implements OnInit {
     
   }
 
-  searchForStudent(student: Students[]) {
-    this.students = student
+  searchForStudent(student: string) {
+    this.searchValue = student
     console.log(this.students);
     
   }

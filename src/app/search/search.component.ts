@@ -10,13 +10,14 @@ import { Students } from '../models/students';
 export class SearchComponent implements OnInit {
 
   
-  @Output() searchedStudents = new EventEmitter<Students[]>()
+  @Output() searchedStudents = new EventEmitter<string>()
   @Input() students: Students[] = []
   search: string = ''
 
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
   searchForm = new FormGroup({
@@ -26,8 +27,9 @@ export class SearchComponent implements OnInit {
   // Search Students
   getStudentsBySearch(searchTerm: string) {
     if(searchTerm !== '') {
-      const searched = this.students.filter(val => val.name.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase()))
-      this.searchedStudents.emit(searched)
+      this.search = this.searchForm.get('input')?.value
+      console.log(this.search);
+      this.searchedStudents.emit(this.search)
     }
     this.searchForm.get('input')?.reset()
   }
