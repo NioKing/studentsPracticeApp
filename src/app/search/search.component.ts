@@ -10,7 +10,7 @@ import { Students } from '../models/students';
 export class SearchComponent implements OnInit {
 
   
-  @Output() searchedStudents = new EventEmitter<Students[]>()
+  @Output() searchedStudents = new EventEmitter<string>()
   @Input() students: Students[] = []
   search: string = ''
 
@@ -26,8 +26,13 @@ export class SearchComponent implements OnInit {
   // Search Students
   getStudentsBySearch(searchTerm: string) {
     if(searchTerm !== '') {
-      const searched = this.students.filter(val => val.name.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase()))
-      this.searchedStudents.emit(searched)
+      // const searched = this.students.filter(val => val.name.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase()))
+      this.search = this.searchForm.get('input')?.value
+      console.log(this.search);
+      this.searchedStudents.emit(this.search)
+      console.log(this.searchedStudents);
+      
+      // this.searchedStudents.emit(searched)
     }
     this.searchForm.get('input')?.reset()
   }
