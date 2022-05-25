@@ -17,7 +17,7 @@ export class SearchComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.getStudentsBySearch(this.search)
+    
   }
 
   searchForm = new FormGroup({
