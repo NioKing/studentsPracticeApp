@@ -85,8 +85,6 @@ export class MainComponent implements OnInit {
   }
 
   searchForStudent(student: string) {
-    // this.students = student
-    console.log(`Student value: ${student}`);
     this.searchValue = student
     console.log(this.students);
     

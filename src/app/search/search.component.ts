@@ -17,6 +17,7 @@ export class SearchComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.getStudentsBySearch(this.search)
   }
 
   searchForm = new FormGroup({
@@ -26,13 +27,9 @@ export class SearchComponent implements OnInit {
   // Search Students
   getStudentsBySearch(searchTerm: string) {
     if(searchTerm !== '') {
-      // const searched = this.students.filter(val => val.name.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase()))
       this.search = this.searchForm.get('input')?.value
       console.log(this.search);
       this.searchedStudents.emit(this.search)
-      console.log(this.searchedStudents);
-      
-      // this.searchedStudents.emit(searched)
     }
     this.searchForm.get('input')?.reset()
   }
