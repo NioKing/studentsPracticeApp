@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { debounceTime, distinctUntilChanged, Observable } from 'rxjs';
 import { Students } from '../models/students';
 
 @Component({
@@ -10,29 +11,28 @@ import { Students } from '../models/students';
 export class SearchComponent implements OnInit {
 
   
-  @Output() searchedStudents = new EventEmitter<string>()
+  @Output() searchedStudents = new EventEmitter<Observable<string>>()
   @Input() students: Students[] = []
   search: string = ''
 
   constructor() { }
 
   ngOnInit(): void {
-    
+    this.searchStudents()
   }
 
   searchForm = new FormGroup({
-    'input': new FormControl('', [Validators.required])
+    'input': new FormControl('')
   })
 
-  // Search Students
-  getStudentsBySearch(searchTerm: string) {
-    if(searchTerm !== '') {
-      this.search = this.searchForm.get('input')?.value
-      console.log(this.search);
-      this.searchedStudents.emit(this.search)
-    }
-    this.searchForm.get('input')?.reset()
+  searchStudents() {
+    this.searchForm.valueChanges.pipe(
+      debounceTime(500),
+      distinctUntilChanged(),
+      
+    ).subscribe((res: any) => {
+      this.searchedStudents.emit(res.input)
+    })
   }
-  
   
 }

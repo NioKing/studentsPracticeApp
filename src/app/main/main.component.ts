@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { map, Observable } from 'rxjs';
 import { Students } from '../models/students';
 
 @Component({
@@ -85,9 +86,7 @@ export class MainComponent implements OnInit {
   }
 
   searchForStudent(student: string) {
-    this.searchValue = student
-    console.log(this.students);
-    
+    this.searchValue = student  
   }
  
 }

@@ -10,8 +10,7 @@ export class FilterPipe implements PipeTransform {
     if(!Students || !searchValue) {
       return Students;
     }
-    return Students.filter(val => val.name.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())) ||
-    Students.filter(val => val.age.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()))
+    return Students.filter(val => val.name.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()))
   }
 
 }
