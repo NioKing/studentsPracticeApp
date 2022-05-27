@@ -9,6 +9,9 @@ import { FilterComponent } from './filter/filter.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchComponent } from './search/search.component';
 import { FilterPipe } from './pipes/filter.pipe';
+import { LoginComponent } from './login/login.component';
+import { AppRoutingModule } from './app-routing/app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,9 @@ import { FilterPipe } from './pipes/filter.pipe';
     MainComponent,
     FilterComponent,
     SearchComponent,
-    FilterPipe
+    FilterPipe,
+    LoginComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -24,6 +29,8 @@ import { FilterPipe } from './pipes/filter.pipe';
     SharedModule,
     ReactiveFormsModule,
     FormsModule,
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
