@@ -40,8 +40,10 @@ export class LoginComponent implements OnInit {
        if(user) {
          this.router.navigate(['students'])
          this.loginForm.reset()
+         localStorage.setItem("LoggedIn", "true")
        }else {
          alert('User not found!')
+         localStorage.clear()
        }
      })
     }

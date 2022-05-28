@@ -22,4 +22,6 @@ export class AuthService {
   loginUser(user: Users) {
     return this.http.post('http://localhost:3000/users', user)
   }
+
+    
 }
