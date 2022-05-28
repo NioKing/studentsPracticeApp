@@ -39,10 +39,23 @@
       "id": 8,
       "email": "carl112@mail.com",
       "password": "112233"
+    },
+    {
+      "email": "mailtest@mail.com",
+      "password": "123456",
+      "id": 9
+    },
+    {
+      "email": "admin@mail.ru",
+      "password": "123123",
+      "id": 10
     }
-    
   ],
   "signUpUsers": [
-    
+    {
+      "email": "mailtest@mail.com",
+      "password": "123456",
+      "id": 1
+    }
   ]
 }

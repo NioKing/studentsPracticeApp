@@ -19,7 +19,7 @@ export class AuthService {
   }
 
   // Login User
-  loginUser(user: Users) {
+  registerUser(user: Users) {
     return this.http.post('http://localhost:3000/users', user)
   }
 

@@ -12,6 +12,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import { RegisterComponent } from './login/register/register.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
     SearchComponent,
     FilterPipe,
     LoginComponent,
+    RegisterComponent,
     
   ],
   imports: [
