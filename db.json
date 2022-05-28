@@ -1,44 +1,45 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "email": "test@mail.com",
-            "password": "123456"
-        },
-        {
-            "id": 2,
-            "email": "ivan@mail.com",
-            "password": "123mail"
-        },
-        {
-            "id": 3,
-            "email": "jack@mail.com",
-            "password": "123123"
-        },
-        {
-            "id": 4,
-            "email": "cars@mail.com",
-            "password": "54321"
-        },
-        {
-            "id": 5,
-            "email": "mail@mail.com",
-            "password": "111222"
-        },
-        {
-            "id": 6,
-            "email": "robert123@mail.com",
-            "password": "121212"
-        },
-        {
-            "id": 7,
-            "email": "roger11@mail.com",
-            "password": "1234321"
-        },
-        {
-            "id": 8,
-            "email": "carl112@mail.com",
-            "password": "112233"
-        }
-    ]
+  "users": [
+    {
+      "id": 1,
+      "email": "test@mail.com",
+      "password": "123456"
+    },
+    {
+      "id": 2,
+      "email": "ivan@mail.com",
+      "password": "123mail"
+    },
+    {
+      "id": 3,
+      "email": "jack@mail.com",
+      "password": "123123"
+    },
+    {
+      "id": 4,
+      "email": "cars@mail.com",
+      "password": "54321"
+    },
+    {
+      "id": 5,
+      "email": "mail@mail.com",
+      "password": "111222"
+    },
+    {
+      "id": 6,
+      "email": "robert123@mail.com",
+      "password": "121212"
+    },
+    {
+      "id": 7,
+      "email": "roger11@mail.com",
+      "password": "1234321"
+    },
+    {
+      "id": 8,
+      "email": "carl112@mail.com",
+      "password": "112233"
+    }
+    
+  ]
 }
