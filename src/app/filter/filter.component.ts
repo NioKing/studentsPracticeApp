@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { Students } from '../models/students';
 
 @Component({
@@ -12,7 +13,9 @@ export class FilterComponent implements OnInit {
   @Output() matureStudents = new EventEmitter<Students[]>()
   
   
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     console.log(this.students);
@@ -36,4 +39,10 @@ export class FilterComponent implements OnInit {
     this.matureStudents.emit(mature)
 }
 
+
+  // Logout
+  logout() {
+    localStorage.clear()
+    this.router.navigate([''])
+  }
 }
