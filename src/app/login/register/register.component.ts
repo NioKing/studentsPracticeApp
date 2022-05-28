@@ -24,18 +24,42 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
   
+  // onRegister() {
+  //   const user = {
+  //     'email': this.registerForm.get('email')?.value,
+  //     'password': this.registerForm.get('password')?.value
+  //   }
+    
+  //   this.authService.registerUser(user)
+  //   .subscribe((res: any) => {
+  //     console.log(res);
+  //   })
+  //   this.registerForm.reset()
+  //   this.router.navigate([''])
+  // }
+
   onRegister() {
     const user = {
       'email': this.registerForm.get('email')?.value,
       'password': this.registerForm.get('password')?.value
     }
-    
-    this.authService.registerUser(user)
+
+    this.authService.getUsers()
     .subscribe((res: any) => {
-      console.log(res);
+      const existedUser = res.find((val: any) => val.email === user.email)
+      if(!existedUser) {
+        this.authService.registerUser(user)
+        .subscribe((response: any) => {
+          console.log(response)
+          this.registerForm.reset()
+          this.router.navigate([''])
+          
+        })
+      }else {
+        alert('User already exist')
+        this.registerForm.reset()
+      }
     })
-    this.registerForm.reset()
-    this.router.navigate([''])
   }
 
 }
