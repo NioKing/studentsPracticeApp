@@ -43,7 +43,6 @@ export class LoginComponent implements OnInit {
          this.loginForm.reset()
          localStorage.setItem("LoggedIn", "true")
        }else {
-        //  alert('User not found!')
          setTimeout(() => {
            this.isLoginFailed = false
          }, 4000);
