@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
 
   users: Users[] = []
   data : any[] = []
+  isLoginFailed: boolean = false
   
   constructor(
     private router: Router,
@@ -35,14 +36,17 @@ export class LoginComponent implements OnInit {
      this.authService.getUsers()
      .subscribe((res: any) => {
        const user = res.find((val: any) => {
-         return val.email === this.loginForm.get('email')?.value && val.password === this.loginForm.get('password')?.value
+         return val.email.toLocaleLowerCase() === this.loginForm.get('email')?.value.toLocaleLowerCase() && val.password === this.loginForm.get('password')?.value
        });
        if(user) {
          this.router.navigate(['students'])
          this.loginForm.reset()
          localStorage.setItem("LoggedIn", "true")
        }else {
-         alert('User not found!')
+         setTimeout(() => {
+           this.isLoginFailed = false
+         }, 4000);
+         this.isLoginFailed = true
          localStorage.clear()
        }
      })
@@ -60,4 +64,9 @@ export class LoginComponent implements OnInit {
     })
   }
 
+
+  // Get SignUp
+  signUp() {
+    this.router.navigate(['register'])
+  }
 }

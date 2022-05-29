@@ -39,10 +39,53 @@
       "id": 8,
       "email": "carl112@mail.com",
       "password": "112233"
+    },
+    {
+      "email": "mailtest@mail.com",
+      "password": "123456",
+      "id": 9
+    },
+    {
+      "email": "admin@mail.ru",
+      "password": "123123",
+      "id": 10
+    },
+    {
+      "email": "test22@mail.com",
+      "password": "111222",
+      "id": 11
+    },
+    {
+      "email": "sdfsdfsdf@asdasd",
+      "password": "asdasdasd",
+      "id": 12
+    },
+    {
+      "email": "test@mail.com",
+      "password": "123456",
+      "id": 13
+    },
+    {
+      "email": "test1@mail.com",
+      "password": "123456",
+      "id": 14
+    },
+    {
+      "email": "test3@mail.com",
+      "password": "123456",
+      "id": 15
+    },
+    {
+      "email": "test11@mail.com",
+      "password": "1231231231",
+      "id": 16
     }
-    
   ],
   "signUpUsers": [
-    
+    {
+      "email": "mailtest@mail.com",
+      "password": "123456",
+      "id": 1
+    }
   ]
 }
