@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
      this.authService.getUsers()
      .subscribe((res: any) => {
        const user = res.find((val: any) => {
-         return val.email === this.loginForm.get('email')?.value && val.password === this.loginForm.get('password')?.value
+         return val.email.toLocaleLowerCase() === this.loginForm.get('email')?.value.toLocaleLowerCase() && val.password === this.loginForm.get('password')?.value
        });
        if(user) {
          this.router.navigate(['students'])
