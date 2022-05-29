@@ -46,14 +46,14 @@ export class RegisterComponent implements OnInit {
 
     this.authService.getUsers()
     .subscribe((res: any) => {
-      const existedUser = res.find((val: any) => val.email === user.email)
+      const existedUser = res.find((val: any) => val.email.toLocaleLowerCase() === user.email.toLocaleLowerCase())
       if(!existedUser) {
         this.authService.registerUser(user)
         .subscribe((response: any) => {
           console.log(response)
           this.registerForm.reset()
+          localStorage.setItem("Registered", "true")
           this.router.navigate([''])
-          
         })
       }else {
         alert('User already exist')

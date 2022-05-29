@@ -60,4 +60,9 @@ export class LoginComponent implements OnInit {
     })
   }
 
+
+  // Get SignUp
+  signUp() {
+    this.router.navigate(['register'])
+  }
 }
