@@ -15,6 +15,7 @@ export class RegisterComponent implements OnInit {
     private router: Router
   ) { }
 
+  isLoginFailed: boolean = false
   
   registerForm = new FormGroup({
     'email': new FormControl('', [Validators.required, Validators.email]),
@@ -24,19 +25,6 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
   
-  // onRegister() {
-  //   const user = {
-  //     'email': this.registerForm.get('email')?.value,
-  //     'password': this.registerForm.get('password')?.value
-  //   }
-    
-  //   this.authService.registerUser(user)
-  //   .subscribe((res: any) => {
-  //     console.log(res);
-  //   })
-  //   this.registerForm.reset()
-  //   this.router.navigate([''])
-  // }
 
   onRegister() {
     const user = {
@@ -56,7 +44,10 @@ export class RegisterComponent implements OnInit {
           this.router.navigate([''])
         })
       }else {
-        alert('User already exist')
+        setTimeout(() => {
+          this.isLoginFailed = false
+        }, 4000);
+        this.isLoginFailed = true
         this.registerForm.reset()
       }
     })

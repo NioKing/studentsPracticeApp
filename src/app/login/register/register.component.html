@@ -1,32 +1,36 @@
-<mat-card style="width: 550px; margin: 300px auto">
-  <mat-card-title style="text-align: center; margin-bottom: 20px">
-    Registration
-  </mat-card-title>
-  <mat-card-content>
-    <form
-      style="display: flex; flex-direction: column"
-      [formGroup]="registerForm"
-      (ngSubmit)="onRegister()"
-    >
-      <mat-form-field appearance="fill">
-        <mat-label>Email</mat-label>
-        <input matInput formControlName="email" type="emauk" />
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>Password</mat-label>
-        <input matInput formControlName="password" type="password" />
-        <mat-hint>Minimum 5 characters </mat-hint>
-      </mat-form-field>
-      <mat-card-actions style="text-align: center">
-        <button
-          mat-raised-button
-          color="primary"
-          type="submit"
-          [disabled]="!registerForm.valid"
+  <mat-card style="height: 100%;">
+    <mat-card style="width: 550px; margin: 300px auto">
+      <mat-card-title style="text-align: center; margin-bottom: 20px">
+        Registration
+      </mat-card-title>
+      <mat-card-content>
+        <form
+          style="display: flex; flex-direction: column"
+          [formGroup]="registerForm"
+          (ngSubmit)="onRegister()"
         >
-          Register
-        </button>
-      </mat-card-actions>
-    </form>
-  </mat-card-content>
-</mat-card>
+          <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" type="emauk" />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput formControlName="password" type="password" />
+            <mat-hint>Minimum 5 characters</mat-hint>
+          </mat-form-field>
+          <mat-card-actions style="text-align: center">
+            <button
+              mat-raised-button
+              color="primary"
+              type="submit"
+              [disabled]="!registerForm.valid"
+            >
+              Register
+            </button>
+          </mat-card-actions>
+        </form>
+      </mat-card-content>
+    </mat-card>
+    <app-popup *ngIf="isLoginFailed"></app-popup>
+  </mat-card>
+  

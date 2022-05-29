@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
 
   users: Users[] = []
   data : any[] = []
+  isLoginFailed: boolean = false
   
   constructor(
     private router: Router,
@@ -42,7 +43,11 @@ export class LoginComponent implements OnInit {
          this.loginForm.reset()
          localStorage.setItem("LoggedIn", "true")
        }else {
-         alert('User not found!')
+        //  alert('User not found!')
+         setTimeout(() => {
+           this.isLoginFailed = false
+         }, 4000);
+         this.isLoginFailed = true
          localStorage.clear()
        }
      })
