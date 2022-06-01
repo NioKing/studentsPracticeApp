@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { Students } from '../models/students';
 
@@ -7,7 +7,7 @@ import { Students } from '../models/students';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-export class MainComponent implements OnInit {
+export class MainComponent implements OnInit, AfterViewInit {
 
   students: Students[] = [
     {
@@ -72,15 +72,27 @@ export class MainComponent implements OnInit {
     },
 ]
   searchValue: string = ''
+  isChecked: boolean = false
+  onDelete: Students[] = []
+
+
+  @ViewChildren("cardborder")cardBorder! : QueryList<ElementRef>;
+  @ViewChildren("CheckBox")CheckBox!: QueryList<ElementRef>
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  ngAfterViewInit(): void {
+    // console.log(this.defCheckBox);
+    // console.log(this.cardBorder);
+    
+  }
 
-  filterMatureStudents(stundent: Students[]) {
-    this.students = stundent
+
+  filterAdultStudents(student: Students[]) {
+    this.students = student
     console.log(this.students);
     
   }
@@ -89,4 +101,23 @@ export class MainComponent implements OnInit {
     this.searchValue = student  
   }
  
+
+  
+  selectStudent(item: Students) {
+    const index = this.students.indexOf(item)
+    let selectedStudent = [...this.students].splice(index, 1)
+    selectedStudent.forEach((val) => {
+      this.onDelete.push(val)
+    })
+    console.log(this.onDelete);
+    
+  }
+  
+  deleteSelected() {
+   const arr = this.students.filter((val) => {
+     return this.onDelete.indexOf(val) === -1
+   }) 
+   this.students = arr
+   
+  }
 }

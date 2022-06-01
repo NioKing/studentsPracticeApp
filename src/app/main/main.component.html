@@ -1,17 +1,25 @@
-<app-filter [students]="students" (matureStudents)="filterMatureStudents($event)"></app-filter>
+<app-filter [students]="students" (matureStudents)="filterAdultStudents($event)"></app-filter>
 <app-search [students]="students" (searchedStudents)="searchForStudent($event.toString())"></app-search>
 <div class="container" style="margin: 30px auto; width: 400px">
+    <div class="delete-btn" style="margin-bottom: 20px; text-align: center">
+        <button mat-raised-button color="warn" (click)="deleteSelected()">Delete</button>
+    </div>
     <div class="person" style="margin-bottom: 40px;" *ngFor="let stundent of students |filter: searchValue">
-    <mat-card>
-            <mat-card-title style="text-align: center;">
-                <span>ID: {{stundent.id}}</span>
-            </mat-card-title>
-            <mat-card-content style="display: flex; flex-direction: column; gap: 10px; font-size: 20px;">
-                <span>Name: {{stundent.name}}</span>
-                <span>Age: {{stundent.age}}</span>
-                <span>Is student: {{stundent.isStudent}}</span>
-            </mat-card-content>
-        </mat-card>
+    <div class="border" #cardborder>
+        <mat-card>
+            <div class="checkbox" style="text-align: end; margin-bottom: 7px">
+                <input type="checkbox" [checked]="isChecked" #CheckBox (click)="selectStudent(stundent)">
+            </div>
+                <mat-card-title style="text-align: center;">
+                    <span>ID: {{stundent.id}}</span>
+                </mat-card-title>
+                <mat-card-content style="display: flex; flex-direction: column; gap: 10px; font-size: 20px;">
+                    <span>Name: {{stundent.name}}</span>
+                    <span>Age: {{stundent.age}}</span>
+                    <span>Is student: {{stundent.isStudent}}</span>
+                </mat-card-content>
+            </mat-card>
+    </div>
     </div>
     
 </div>
