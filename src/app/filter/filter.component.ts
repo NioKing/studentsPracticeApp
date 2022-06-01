@@ -10,7 +10,7 @@ import { Students } from '../models/students';
 export class FilterComponent implements OnInit {
 
   @Input() students: Students[] = []
-  @Output() matureStudents = new EventEmitter<Students[]>()
+  @Output() adultStudents = new EventEmitter<Students[]>()
   
   
   constructor(
@@ -35,8 +35,8 @@ export class FilterComponent implements OnInit {
 
   // Filter Student by Age
   filterByAge() {
-    const mature = this.students.filter(val => +val.age >= 18)
-    this.matureStudents.emit(mature)
+    const adult = this.students.filter(val => +val.age >= 18)
+    this.adultStudents.emit(adult)
 }
 
 

@@ -1,4 +1,4 @@
-<app-filter [students]="students" (matureStudents)="filterAdultStudents($event)"></app-filter>
+<app-filter [students]="students" (adultStudents)="filterAdultStudents($event)"></app-filter>
 <app-search [students]="students" (searchedStudents)="searchForStudent($event.toString())"></app-search>
 <div class="container" style="margin: 30px auto; width: 400px">
     <div class="delete-btn" style="margin-bottom: 20px; text-align: center">
