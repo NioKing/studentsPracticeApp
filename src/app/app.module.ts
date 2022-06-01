@@ -11,10 +11,11 @@ import { SearchComponent } from './search/search.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { LoginComponent } from './login/login.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RegisterComponent } from './login/register/register.component';
 import { PopupComponent } from './login/register/popup/popup.component';
 import { ErrorComponent } from './login/error/error.component';
+import { HeadersInterceptor } from './interceptors/headers.interceptor';
 
 
 @NgModule({
@@ -38,7 +39,9 @@ import { ErrorComponent } from './login/error/error.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass:HeadersInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
