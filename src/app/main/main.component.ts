@@ -107,17 +107,19 @@ export class MainComponent implements OnInit, AfterViewInit {
     const index = this.students.indexOf(item)
     let selectedStudent = [...this.students].splice(index, 1)
     selectedStudent.forEach((val) => {
-      this.onDelete.push(val)
+      if(this.onDelete.find(res => res.name === val.name)) {
+        this.onDelete.splice(index, 1)
+      } else {
+        this.onDelete.push(val)
+
+      }
     })
     console.log(this.onDelete);
     
   }
   
   deleteSelected() {
-   const arr = this.students.filter((val) => {
-     return this.onDelete.indexOf(val) === -1
-   }) 
-   this.students = arr
-   
+    const arr = this.students.filter(val => this.onDelete.indexOf(val) === -1) 
+    this.students = arr
   }
 }
