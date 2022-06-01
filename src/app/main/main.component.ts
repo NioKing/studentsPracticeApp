@@ -76,7 +76,7 @@ export class MainComponent implements OnInit, AfterViewInit {
   onDelete: Students[] = []
 
 
-  @ViewChildren("cardborder")cardBorder! : QueryList<ElementRef>;
+  @ViewChildren("cardborder")cardBorder!: QueryList<ElementRef>
   @ViewChildren("CheckBox")CheckBox!: QueryList<ElementRef>
 
   constructor() { }
@@ -90,29 +90,37 @@ export class MainComponent implements OnInit, AfterViewInit {
     
   }
 
-
+  // Filter Students Who Older Than 18
   filterAdultStudents(student: Students[]) {
     this.students = student
     console.log(this.students);
     
   }
 
+  // Search Students By Input Field
   searchForStudent(student: string) {
     this.searchValue = student  
   }
  
 
-  
+  // Select A Student By CheckBox
   selectStudent(item: Students) {
     const index = this.students.indexOf(item)
     let selectedStudent = [...this.students].splice(index, 1)
     selectedStudent.forEach((val) => {
-      this.onDelete.push(val)
+      if (this.onDelete.find(res => res === val)) {
+        const index = this.onDelete.indexOf(val)
+        this.onDelete.splice(index, 1)
+      } else {
+        this.onDelete.push(val)
+      }
     })
     console.log(this.onDelete);
     
   }
+
   
+  // Delete Checked Students
   deleteSelected() {
     const arr = this.students.filter(val => this.onDelete.indexOf(val) === -1) 
     this.students = arr
