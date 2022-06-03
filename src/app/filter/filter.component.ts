@@ -33,6 +33,11 @@ export class FilterComponent implements OnInit {
   }
 
 
+  // Sort By Name 
+  sortStudentsByName() {
+    this.students.sort((a, b) => a.name > b.name ? 1 : -1)
+  }
+
   // Filter Student by Age
   filterByAge() {
     const adult = this.students.filter(val => +val.age >= 18)
