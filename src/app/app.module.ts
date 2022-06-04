@@ -37,7 +37,8 @@ import { HeadersInterceptor } from './interceptors/headers.interceptor';
     ReactiveFormsModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass:HeadersInterceptor, multi: true}
