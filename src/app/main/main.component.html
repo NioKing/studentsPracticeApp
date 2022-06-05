@@ -4,6 +4,7 @@
     <div class="delete-btn" style="margin-bottom: 20px; text-align: center">
         <button mat-raised-button color="warn" (click)="deleteSelected()">Delete</button>
     </div>
+    <app-drop-list></app-drop-list>
     <div [@itemAnim] class="person" style="margin-bottom: 40px;" *ngFor="let stundent of students |filter: searchValue">
     <div class="border" #cardborder>
         <mat-card>

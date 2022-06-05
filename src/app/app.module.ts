@@ -16,6 +16,7 @@ import { RegisterComponent } from './login/register/register.component';
 import { PopupComponent } from './login/register/popup/popup.component';
 import { ErrorComponent } from './login/error/error.component';
 import { HeadersInterceptor } from './interceptors/headers.interceptor';
+import { DropListComponent } from './main/drop-list/drop-list.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { HeadersInterceptor } from './interceptors/headers.interceptor';
     RegisterComponent,
     PopupComponent,
     ErrorComponent,
+    DropListComponent,
   ],
   imports: [
     BrowserModule,
