@@ -74,14 +74,16 @@ export class MainComponent implements OnInit, AfterViewInit {
     },
 ]
   searchValue: string = ''
-  isChecked: boolean = false
   onDelete: Students[] = []
 
 
   @ViewChildren("cardborder")cardBorder!: QueryList<ElementRef>
   @ViewChildren("CheckBox")CheckBox!: QueryList<ElementRef>
+  @ViewChildren('card')card!: QueryList<ElementRef>
+  
 
-  constructor() { }
+  constructor(
+  ) { }
 
   ngOnInit(): void {
   }
@@ -127,4 +129,5 @@ export class MainComponent implements OnInit, AfterViewInit {
     const arr = this.students.filter(val => this.onDelete.indexOf(val) === -1) 
     this.students = arr
   }
+
 }

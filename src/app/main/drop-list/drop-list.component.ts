@@ -1,4 +1,7 @@
-import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
+import { AfterViewInit, Component, ElementRef, Input, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { Students } from 'src/app/models/students';
+import { ShareService } from './share.service';
 
 @Component({
   selector: 'app-drop-list',
@@ -14,19 +17,23 @@ export class DropListComponent implements OnInit, AfterViewInit {
     {color: "pink"},
     {color: "purple"},
     {color: "orange"},
-    {color: "wheat"}
+    {color: "wheat"},
+    {color: "blue"}
   ]
+
+  @Input() students: Students[] = []
 
   @ViewChildren('colorBox')colorBox!:QueryList<ElementRef>
 
-  constructor() { }
+  constructor(
+    private share: ShareService
+  ) { }
 
   ngOnInit(): void {
     console.log(this.colors);
   }
 
   ngAfterViewInit(): void {
-    console.log(this.colorBox);
     this.setColor()
   }
 
@@ -42,4 +49,8 @@ export class DropListComponent implements OnInit, AfterViewInit {
     })
   }
 
+  // Drag And Drop Colors
+  drop(event: CdkDragDrop<string[]>) {
+    this.share.drop(event)
+  }
 }

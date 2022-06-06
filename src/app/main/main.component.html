@@ -4,12 +4,12 @@
     <div class="delete-btn" style="margin-bottom: 20px; text-align: center">
         <button mat-raised-button color="warn" (click)="deleteSelected()">Delete</button>
     </div>
-    <app-drop-list></app-drop-list>
+    <app-drop-list [students]="students"></app-drop-list>
     <div [@itemAnim] class="person" style="margin-bottom: 40px;" *ngFor="let stundent of students |filter: searchValue">
     <div class="border" #cardborder>
-        <mat-card>
+        <mat-card #card >
             <div class="checkbox" style="text-align: end; margin-bottom: 7px">
-                <input type="checkbox" [checked]="isChecked" #CheckBox (click)="selectStudent(stundent)">
+                <input type="checkbox" #CheckBox (click)="selectStudent(stundent)">
             </div>
                 <mat-card-title style="text-align: center;">
                     <span>ID: {{stundent.id}}</span>
